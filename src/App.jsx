@@ -10,8 +10,16 @@ function App() {
   const nextColorTitleCase = kebabCaseToTitleCase(nextColorClass);
   const className = disabled ? "gray" : buttonColor;
 
+  const divStyle = {
+    display: "grid",
+    placeItems: "center",
+    width: "50vw",
+    backgroundColor:
+      buttonColor === "medium-violet-red" ? "lightpink" : "skyblue",
+  };
+
   return (
-    <div>
+    <div style={divStyle}>
       <button
         className={className}
         disabled={disabled}
