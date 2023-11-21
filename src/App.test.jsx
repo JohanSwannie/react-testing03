@@ -1,22 +1,36 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
-// Test 1
-
-test("Button starts with the correct color before the click", () => {
+test("button click flow", () => {
   render(<App />);
-  const buttonElement = screen.getByRole("button", { name: /blue/i });
+
+  // find an element with a role of button and text matching /blue/i
+  const buttonElement = screen.getByRole("button", {
+    name: /blue/i,
+  });
+
+  // expect the class to be red
   expect(buttonElement).toHaveClass("red");
+
+  // click button
+  fireEvent.click(buttonElement);
+
+  // expect the class to be blue
+  expect(buttonElement).toHaveClass("blue");
+
+  // expect the button text to match /red/i
+  expect(buttonElement).toHaveTextContent(/red/i);
 });
 
-// Test 2
+test("checkbox flow", () => {
+  // render app
+  render(<App />);
 
-test("Button starts with the correct text before the click", () => {});
-
-// Test 3
-
-test("Button starts with the correct color after the click", () => {});
-
-// Test 4
-
-test("Button starts with the correct text after the click", () => {});
+  // find elements
+  const buttonElement = screen.getByRole("button", {
+    name: /blue/i,
+  });
+  const checkboxElement = screen.getByRole("checkbox", {
+    name: /disable button/i,
+  });
+});
