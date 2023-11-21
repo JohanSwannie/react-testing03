@@ -1,6 +1,6 @@
-import "./App.css";
 import { useState } from "react";
 import { kebabCaseToTitleCase } from "./helpers";
+import "./App.css";
 
 function App() {
   const [disabled, setDisabled] = useState(false);
