@@ -77,7 +77,7 @@ test("checkbox flow after button click", () => {
 });
 
 describe("kebabCaseToTitleCase", () => {
-  test("Works for no hypens", () => {
+  test("Works for no hyphens", () => {
     expect(kebabCaseToTitleCase("red")).toBe("Red");
   });
   test("Works for one hyphen", () => {
